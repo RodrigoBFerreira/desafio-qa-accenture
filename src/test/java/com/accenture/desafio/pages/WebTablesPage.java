@@ -86,6 +86,7 @@ public class WebTablesPage extends BasePage {
     public void clearSearch() {
         WebElement box = visible(SEARCH_BOX);
         box.sendKeys(Keys.chord(Keys.CONTROL, "a"), Keys.DELETE);
+        pauseSlowMotion();
     }
 
     private void fillForm(WebTableRecord record) {

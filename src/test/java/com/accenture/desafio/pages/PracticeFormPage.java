@@ -72,7 +72,9 @@ public class PracticeFormPage extends BasePage {
     public void selectDateOfBirth(int day, int monthIndex, int year) {
         click(DATE_OF_BIRTH);
         new Select(visible(YEAR_SELECT)).selectByValue(String.valueOf(year));
+        pauseSlowMotion();
         new Select(visible(MONTH_SELECT)).selectByIndex(monthIndex);
+        pauseSlowMotion();
         click(By.cssSelector(String.format(
                 ".react-datepicker__day--%03d:not(.react-datepicker__day--outside-month)", day)));
     }
@@ -80,9 +82,12 @@ public class PracticeFormPage extends BasePage {
     public void addSubject(String subject) {
         WebElement input = visible(SUBJECTS);
         scrollTo(input);
+        pauseSlowMotion();
         input.sendKeys(subject);
         visible(SUBJECT_OPTION);
+        pauseSlowMotion();
         input.sendKeys(Keys.ENTER);
+        pauseSlowMotion();
     }
 
     /** @param hobby Sports, Reading ou Music */
@@ -91,7 +96,9 @@ public class PracticeFormPage extends BasePage {
     }
 
     public void uploadFile(Path file) {
+        pauseSlowMotion();
         present(UPLOAD).sendKeys(file.toAbsolutePath().toString());
+        pauseSlowMotion();
     }
 
     public String uploadedFileValue() {
@@ -113,8 +120,11 @@ public class PracticeFormPage extends BasePage {
     private void selectFromReactSelect(By input, String value) {
         WebElement element = present(input);
         scrollTo(element);
+        pauseSlowMotion();
         element.sendKeys(value);
+        pauseSlowMotion();
         element.sendKeys(Keys.ENTER);
+        pauseSlowMotion();
     }
 
     public void submit() {

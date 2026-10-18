@@ -1,5 +1,6 @@
 package com.accenture.desafio.steps.ui;
 
+import com.accenture.desafio.pages.BasePage;
 import com.accenture.desafio.pages.BrowserWindowsPage;
 import com.accenture.desafio.support.TestContext;
 import io.cucumber.java.pt.E;
@@ -30,6 +31,7 @@ public class BrowserWindowsSteps {
     @E("a nova janela deve exibir a mensagem {string}")
     public void validarMensagem(String mensagem) {
         assertThat(page.sampleHeadingText()).isEqualTo(mensagem);
+        BasePage.pauseSlowMotion();
     }
 
     @Quando("eu fecho a nova janela")

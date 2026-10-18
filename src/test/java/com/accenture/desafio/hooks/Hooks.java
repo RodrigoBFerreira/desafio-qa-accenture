@@ -1,5 +1,6 @@
 package com.accenture.desafio.hooks;
 
+import com.accenture.desafio.pages.BasePage;
 import com.accenture.desafio.support.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
@@ -23,6 +24,8 @@ public class Hooks {
             if (scenario.isFailed()) {
                 byte[] screenshot = ((TakesScreenshot) context.getDriver()).getScreenshotAs(OutputType.BYTES);
                 scenario.attach(screenshot, "image/png", "falha - " + scenario.getName());
+            } else {
+                BasePage.pauseBeforeClose();
             }
         } finally {
             context.quitDriver();

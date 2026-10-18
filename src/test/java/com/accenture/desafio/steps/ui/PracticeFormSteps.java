@@ -1,5 +1,6 @@
 package com.accenture.desafio.steps.ui;
 
+import com.accenture.desafio.pages.BasePage;
 import com.accenture.desafio.pages.PracticeFormPage;
 import com.accenture.desafio.support.TestContext;
 import com.accenture.desafio.utils.DataGenerator;
@@ -76,6 +77,7 @@ public class PracticeFormSteps {
         assertThat(page.modalValue("Mobile")).isEqualTo(mobile);
         assertThat(page.modalValue("Picture")).isEqualTo("upload.txt");
         assertThat(page.modalValue("State and City")).isEqualTo(state + " " + city);
+        BasePage.pauseSlowMotion();
     }
 
     @Quando("eu fecho o popup")

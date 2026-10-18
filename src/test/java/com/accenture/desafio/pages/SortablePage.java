@@ -39,12 +39,4 @@ public class SortablePage extends BasePage {
                 .perform();
         pause(800);
     }
-
-    private void pause(long millis) {
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-    }
 }
